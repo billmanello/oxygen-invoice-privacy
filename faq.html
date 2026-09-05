@@ -90,7 +90,11 @@
 <details>
   <summary>Τι γίνεται με τις επιστροφές (refunds);</summary>
   <div class="answer">
-    <p>Σε περίπτωση επιστροφής χρημάτων, το app εκδίδει αυτόματα <strong>πιστωτικό σημείωμα</strong> (credit note) που υποβάλλεται στο myDATA. Το document type εξαρτάται από τον τύπο του αρχικού παραστατικού (ΑΛΠ ή ΤΠ).</p>
+       <p>Σε περίπτωση επιστροφής χρημάτων, το app εκδίδει αυτόματα <strong>πιστωτικό σημείωμα</strong> (credit note) που προωθείται στο Oxygen ERP και υποβάλλεται στο myDATA:</p>
+    <ul>
+      <li>Αν το αρχικό παραστατικό ήταν <strong>ΑΛΠ</strong> → εκδίδεται <strong>ΑΛΠ-ΔΑ</strong> (myDATA 11.4)</li>
+      <li>Αν το αρχικό παραστατικό ήταν <strong>ΤΠ</strong> → εκδίδεται <strong>ΤΠ-ΔΑ</strong> (myDATA 5.1)</li>
+    </ul>
   </div>
 </details>
 
