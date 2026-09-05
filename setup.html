@@ -5,70 +5,195 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Οδηγός Εγκατάστασης — Oxygen Invoice App</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
+    body { font-family: Arial, sans-serif; max-width: 860px; margin: 40px auto; padding: 0 20px; color: #333; line-height: 1.7; }
     h1 { color: #1a1a1a; }
-    h2 { color: #2c5f2e; margin-top: 40px; }
+    h2 { color: #2c5f2e; margin-top: 48px; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px; }
+    h3 { color: #444; margin-top: 24px; }
     table { border-collapse: collapse; width: 100%; margin: 16px 0; }
     th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
     th { background: #f5f5f5; }
-    code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; }
-    .note { background: #fff8e1; border-left: 4px solid #ffc107; padding: 12px; margin: 16px 0; }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+    pre { background: #f0f0f0; padding: 14px; border-radius: 6px; overflow-x: auto; }
+    .note { background: #fff8e1; border-left: 4px solid #ffc107; padding: 12px 16px; margin: 16px 0; border-radius: 4px; }
+    .tip { background: #e8f5e9; border-left: 4px solid #4caf50; padding: 12px 16px; margin: 16px 0; border-radius: 4px; }
+    .warning { background: #ffeaea; border-left: 4px solid #f44336; padding: 12px 16px; margin: 16px 0; border-radius: 4px; }
+    ol li, ul li { margin-bottom: 8px; }
   </style>
 </head>
 <body>
-  <h1>🧾 Oxygen Invoice App — Οδηγός Εγκατάστασης</h1>
-  <p>Το Oxygen Invoice App εκδίδει αυτόματα ΑΛΠ και ΤΠ για κάθε πληρωμένη παραγγελία στο Shopify σου και τα υποβάλλει στο myDATA της ΑΑΔΕ σε πραγματικό χρόνο.</p>
 
-  <h2>Βήμα 1 — Δημιουργία λογαριασμού στο Oxygen</h2>
-  <p>Αν δεν έχεις ήδη λογαριασμό:</p>
-  <ol>
-    <li>Πήγαινε στο <a href="https://oxygen.gr">oxygen.gr</a></li>
-    <li>Δημιούργησε λογαριασμό επιχείρησης</li>
-    <li>Συμπλήρωσε τα στοιχεία της επιχείρησής σου (ΑΦΜ, ΔΟΥ, κτλ.)</li>
-  </ol>
+<h1>🧾 Oxygen Invoice App — Οδηγός Εγκατάστασης</h1>
+<p>Το <strong>Oxygen Invoice App</strong> εκδίδει αυτόματα ΑΛΠ και ΤΠ για κάθε πληρωμένη παραγγελία στο Shopify σου και τα υποβάλλει στο myDATA της ΑΑΔΕ σε πραγματικό χρόνο.</p>
 
-  <h2>Βήμα 2 — Απόκτηση API Key</h2>
-  <ol>
-    <li>Σύνδεσου στο Oxygen</li>
-    <li>Πήγαινε <strong>Ρυθμίσεις → API Key</strong></li>
-    <li>Αντέγραψε το API Key</li>
-  </ol>
+<div class="note">
+  <strong>Σημείωση:</strong> Ξεκίνα πάντα με το <strong>Sandbox</strong> περιβάλλον για δοκιμές. Μόνο αφού επιβεβαιώσεις ότι όλα δουλεύουν σωστά, πέρνα στο Production.
+</div>
 
-  <h2>Βήμα 3 — Απόκτηση IDs από το Oxygen</h2>
-  <p>Χρειάζεσαι 4 IDs:</p>
-  <table>
-    <tr><th>Πεδίο</th><th>Πού το βρίσκεις</th></tr>
-    <tr><td>Numbering Sequence ID (ΑΛΠ)</td><td>Ρυθμίσεις → Αρίθμηση → ΑΛΠ</td></tr>
-    <tr><td>Numbering Sequence ID (ΤΠ)</td><td>Ρυθμίσεις → Αρίθμηση → ΤΠ</td></tr>
-    <tr><td>Contact ID</td><td>Επαφές → Default πελάτης → ID</td></tr>
-    <tr><td>Payment Method ID</td><td>Ρυθμίσεις → Τρόποι πληρωμής → ID</td></tr>
-  </table>
+---
 
-  <h2>Βήμα 4 — Ρύθμιση του app</h2>
-  <ol>
-    <li>Άνοιξε το <strong>Oxygen Invoice App</strong> από το Shopify Admin</li>
-    <li>Πήγαινε <strong>Ρυθμίσεις</strong></li>
-    <li>Επέλεξε <strong>Production</strong> mode</li>
-    <li>Συμπλήρωσε: API Key, Numbering Sequence IDs, Contact ID, Payment Method ID</li>
-    <li>Πάτα <strong>Αποθήκευση</strong></li>
-  </ol>
+<h2>Βήμα 1 — Δημιουργία λογαριασμού στο Oxygen</h2>
 
-  <h2>Βήμα 5 — Επαλήθευση</h2>
-  <ol>
-    <li>Κάνε μια test παραγγελία στο Shopify σου</li>
-    <li>Πήγαινε <strong>Dashboard</strong> στο app</li>
-    <li>Θα πρέπει να εμφανιστεί νέο παραστατικό με status ✅</li>
-  </ol>
+<h3>Sandbox (δοκιμαστικό περιβάλλον)</h3>
+<ol>
+  <li>Πήγαινε στο <a href="https://sandbox-app.pelatologio.gr/register.php" target="_blank">https://sandbox-app.pelatologio.gr/register.php</a></li>
+  <li>Δημιούργησε λογαριασμό με τα στοιχεία της επιχείρησής σου</li>
+  <li>Ενημέρωσε το Oxygen support (<a href="mailto:support@oxygen.gr">support@oxygen.gr</a>) με το email εγγραφής σου για να σου στείλουν το Sandbox API Key</li>
+</ol>
+<div class="note">Το sandbox περιβάλλον είναι καθαρά δοκιμαστικό — δεν αποστέλλονται πραγματικά emails και τα παραστατικά δεν υποβάλλονται στην ΑΑΔΕ.</div>
 
-  <h2>Checkout — Έκδοση Τιμολογίου (ΤΠ)</h2>
-  <div class="note">
-    Στο checkout εμφανίζεται checkbox <strong>"Θέλω τιμολόγιο"</strong>. Ο πελάτης συμπληρώνει ΑΦΜ, Επωνυμία, ΔΟΥ και εκδίδεται αυτόματα <strong>ΤΠ</strong> αντί ΑΛΠ.
-  </div>
+<h3>Production (παραγωγικό περιβάλλον)</h3>
+<ol>
+  <li>Πήγαινε στο <a href="https://app.pelatologio.gr" target="_blank">https://app.pelatologio.gr</a></li>
+  <li>Δημιούργησε λογαριασμό με τα πραγματικά στοιχεία της επιχείρησής σου (ΑΦΜ, ΔΟΥ, κτλ.)</li>
+</ol>
 
-  <h2>Χρειάζεσαι βοήθεια;</h2>
-  <p>📧 <a href="mailto:invoice-support@picture2magnet.com">invoice-support@picture2magnet.com</a></p>
+---
 
-  <hr>
-  <p><small><a href="https://billmanello.github.io/oxygen-invoice-privacy/">Privacy Policy</a></small></p>
+<h2>Βήμα 2 — Απόκτηση API Key</h2>
+
+<p>Το Oxygen δεν εκδίδει API Key αυτόματα — πρέπει να επικοινωνήσεις με το support τους:</p>
+<ol>
+  <li>Στείλε email στο <a href="mailto:support@oxygen.gr">support@oxygen.gr</a></li>
+  <li>Γράψε ότι θέλεις API Key για διασύνδεση <strong>Shopify eshop</strong> με το Oxygen</li>
+  <li>Ζήτα <strong>Sandbox API Key</strong> αρχικά</li>
+  <li>Θα σε ρωτήσουν το email εγγραφής σου στο sandbox — στείλτο</li>
+  <li>Θα λάβεις το <strong>Sandbox API Key</strong> μέσω email</li>
+</ol>
+<div class="tip">Μόλις τελειώσεις τις δοκιμές, επικοινώνησε ξανά για να λάβεις το <strong>Production API Key</strong>.</div>
+
+---
+
+<h2>Βήμα 3 — Δημιουργία & Απόκτηση IDs από το Oxygen</h2>
+
+<p>Το app χρειάζεται 5 IDs από το Oxygen. Αυτά <strong>δεν φαίνονται στο UI</strong> — πρέπει πρώτα να δημιουργηθούν μέσα στην εφαρμογή και μετά να τα βγάλεις μέσω API.</p>
+
+<h3>3α — Δημιουργία μέσα στο Oxygen</h3>
+<p>Μπες στο Oxygen app → κλικ <strong>γρανάζι ⚙️ → Πίνακας Ελέγχου</strong> και δημιούργησε τα παρακάτω:</p>
+
+<table>
+  <tr><th>Τι να δημιουργήσεις</th><th>Οδηγίες</th></tr>
+  <tr>
+    <td><strong>Σειρά Παραστατικών ΑΛΠ</strong></td>
+    <td>Σειρές Παραστατικών → Νέα σειρά → τύπος <strong>Απόδειξη Λιανικής Πώλησης (ΑΛΠ)</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Σειρά Παραστατικών ΤΠ</strong></td>
+    <td>Σειρές Παραστατικών → Νέα σειρά → τύπος <strong>Τιμολόγιο Πώλησης (ΤΠ)</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Default Επαφή (Contact)</strong></td>
+    <td>Επαφές → Νέα επαφή → Δημιούργησε έναν γενικό "Λιανικό Πελάτη" για παραγγελίες χωρίς ΑΦΜ</td>
+  </tr>
+  <tr>
+    <td><strong>Τρόπος Πληρωμής</strong></td>
+    <td>Πίνακας Ελέγχου → Τρόποι Πληρωμής → Νέος (π.χ. "Κάρτα" ή "Μετρητά")</td>
+  </tr>
+  <tr>
+    <td><strong>Συντελεστής ΦΠΑ 24%</strong></td>
+    <td>Πίνακας Ελέγχου → Συντελεστές ΦΠΑ → Νέος → 24%</td>
+  </tr>
+</table>
+
+<h3>3β — Απόκτηση IDs μέσω API (με reqbin.com)</h3>
+
+<p>Πήγαινε στο <a href="https://reqbin.com" target="_blank">https://reqbin.com</a> και κάνε τις παρακάτω κλήσεις. Σε <strong>κάθε κλήση</strong> πρόσθεσε header:</p>
+<pre>Authorization: Bearer ΤΟ_API_KEY_ΣΟΥ</pre>
+
+<div class="note">
+  <strong>Sandbox URLs:</strong> <code>https://sandbox-api.pelatologio.gr/v1/...</code><br>
+  <strong>Production URLs:</strong> <code>https://api.pelatologio.gr/v1/...</code>
+</div>
+
+<h4>Numbering Sequence ID (ΑΛΠ & ΤΠ)</h4>
+<pre>GET https://sandbox-api.pelatologio.gr/v1/invoicing-series</pre>
+<p>Στο response βρες:</p>
+<ul>
+  <li>Τη σειρά τύπου <strong>ΑΛΠ</strong> → αντέγραψε το <code>id</code></li>
+  <li>Τη σειρά τύπου <strong>ΤΠ</strong> → αντέγραψε το <code>id</code></li>
+</ul>
+
+<h4>Contact ID</h4>
+<pre>GET https://sandbox-api.pelatologio.gr/v1/contacts</pre>
+<p>Βρες τον γενικό "Λιανικό Πελάτη" που έφτιαξες → αντέγραψε το <code>id</code></p>
+
+<h4>Payment Method ID</h4>
+<pre>GET https://sandbox-api.pelatologio.gr/v1/payment-methods</pre>
+<p>Βρες τον τρόπο πληρωμής που έφτιαξες → αντέγραψε το <code>id</code></p>
+
+<h4>Tax ID (ΦΠΑ 24%)</h4>
+<pre>GET https://sandbox-api.pelatologio.gr/v1/taxes</pre>
+<p>Βρες τον συντελεστή <strong>24%</strong> → αντέγραψε το <code>id</code></p>
+
+---
+
+<h2>Βήμα 4 — Ρύθμιση του app</h2>
+
+<ol>
+  <li>Άνοιξε το <strong>Oxygen Invoice App</strong> από το Shopify Admin σου</li>
+  <li>Πήγαινε στις <strong>Ρυθμίσεις</strong></li>
+  <li>Επέλεξε <strong>Sandbox</strong> mode αρχικά</li>
+  <li>Συμπλήρωσε τα παρακάτω πεδία:</li>
+</ol>
+
+<table>
+  <tr><th>Πεδίο</th><th>Τιμή</th></tr>
+  <tr><td>API Key</td><td>Το Sandbox API Key που έλαβες από το Oxygen</td></tr>
+  <tr><td>Numbering Sequence ID (ΑΛΠ)</td><td>Το id από το invoicing-series (ΑΛΠ)</td></tr>
+  <tr><td>Numbering Sequence ID (ΤΠ)</td><td>Το id από το invoicing-series (ΤΠ)</td></tr>
+  <tr><td>Contact ID</td><td>Το id του γενικού πελάτη</td></tr>
+  <tr><td>Payment Method ID</td><td>Το id του τρόπου πληρωμής</td></tr>
+  <tr><td>Tax ID</td><td>Το id του ΦΠΑ 24%</td></tr>
+</table>
+
+<ol start="5">
+  <li>Πάτα <strong>Αποθήκευση</strong></li>
+</ol>
+
+---
+
+<h2>Βήμα 5 — Δοκιμή στο Sandbox</h2>
+
+<ol>
+  <li>Κάνε μια test παραγγελία στο Shopify σου</li>
+  <li>Πήγαινε <strong>Dashboard</strong> στο app</li>
+  <li>Θα εμφανιστεί νέο παραστατικό με status <strong>✅ Success</strong></li>
+  <li>Αν δεις <strong>❌ Failed</strong> → κλικ Retry ή έλεγξε ότι τα IDs είναι σωστά</li>
+</ol>
+
+---
+
+<h2>Βήμα 6 — Μετάβαση σε Production</h2>
+
+<ol>
+  <li>Επικοινώνησε με το <a href="mailto:support@oxygen.gr">support@oxygen.gr</a> για το Production API Key</li>
+  <li>Πήγαινε Ρυθμίσεις → άλλαξε σε <strong>Production</strong> mode</li>
+  <li>Συμπλήρωσε τα Production IDs (ίδια διαδικασία με Βήμα 3 αλλά με Production API Key και URL <code>api.pelatologio.gr</code>)</li>
+  <li>Αποθήκευσε — από εδώ και πέρα κάθε πληρωμένη παραγγελία εκδίδει <strong>πραγματικό παραστατικό</strong> που υποβάλλεται αυτόματα στο myDATA</li>
+</ol>
+
+<div class="warning">
+  <strong>Προσοχή:</strong> Στο Production mode τα παραστατικά είναι νομικά δεσμευτικά και υποβάλλονται στην ΑΑΔΕ. Βεβαιώσου ότι όλα τα στοιχεία σου είναι σωστά πριν ενεργοποιήσεις.
+</div>
+
+---
+
+<h2>Checkout — Έκδοση Τιμολογίου (ΤΠ)</h2>
+
+<p>Αν ο πελάτης σου θέλει τιμολόγιο αντί απόδειξης:</p>
+<ul>
+  <li>Στο checkout εμφανίζεται checkbox <strong>"Θέλω τιμολόγιο"</strong></li>
+  <li>Ο πελάτης συμπληρώνει ΑΦΜ, Επωνυμία, ΔΟΥ</li>
+  <li>Το ΑΦΜ επαληθεύεται αυτόματα με MOD11 validation</li>
+  <li>Εκδίδεται αυτόματα <strong>ΤΠ</strong> αντί ΑΛΠ</li>
+</ul>
+
+---
+
+<h2>Χρειάζεσαι βοήθεια;</h2>
+<p>📧 <a href="mailto:invoice-support@picture2magnet.com">invoice-support@picture2magnet.com</a></p>
+
+<hr>
+<p><small><a href="https://billmanello.github.io/oxygen-invoice-privacy/">Privacy Policy</a></small></p>
+
 </body>
 </html>
