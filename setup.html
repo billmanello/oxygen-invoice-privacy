@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Οδηγός Εγκατάστασης — Oxygen Invoice App</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
+    h1 { color: #1a1a1a; }
+    h2 { color: #2c5f2e; margin-top: 40px; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+    th { background: #f5f5f5; }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; }
+    .note { background: #fff8e1; border-left: 4px solid #ffc107; padding: 12px; margin: 16px 0; }
+  </style>
+</head>
+<body>
+  <h1>🧾 Oxygen Invoice App — Οδηγός Εγκατάστασης</h1>
+  <p>Το Oxygen Invoice App εκδίδει αυτόματα ΑΛΠ και ΤΠ για κάθε πληρωμένη παραγγελία στο Shopify σου και τα υποβάλλει στο myDATA της ΑΑΔΕ σε πραγματικό χρόνο.</p>
+
+  <h2>Βήμα 1 — Δημιουργία λογαριασμού στο Oxygen</h2>
+  <p>Αν δεν έχεις ήδη λογαριασμό:</p>
+  <ol>
+    <li>Πήγαινε στο <a href="https://oxygen.gr">oxygen.gr</a></li>
+    <li>Δημιούργησε λογαριασμό επιχείρησης</li>
+    <li>Συμπλήρωσε τα στοιχεία της επιχείρησής σου (ΑΦΜ, ΔΟΥ, κτλ.)</li>
+  </ol>
+
+  <h2>Βήμα 2 — Απόκτηση API Key</h2>
+  <ol>
+    <li>Σύνδεσου στο Oxygen</li>
+    <li>Πήγαινε <strong>Ρυθμίσεις → API Key</strong></li>
+    <li>Αντέγραψε το API Key</li>
+  </ol>
+
+  <h2>Βήμα 3 — Απόκτηση IDs από το Oxygen</h2>
+  <p>Χρειάζεσαι 4 IDs:</p>
+  <table>
+    <tr><th>Πεδίο</th><th>Πού το βρίσκεις</th></tr>
+    <tr><td>Numbering Sequence ID (ΑΛΠ)</td><td>Ρυθμίσεις → Αρίθμηση → ΑΛΠ</td></tr>
+    <tr><td>Numbering Sequence ID (ΤΠ)</td><td>Ρυθμίσεις → Αρίθμηση → ΤΠ</td></tr>
+    <tr><td>Contact ID</td><td>Επαφές → Default πελάτης → ID</td></tr>
+    <tr><td>Payment Method ID</td><td>Ρυθμίσεις → Τρόποι πληρωμής → ID</td></tr>
+  </table>
+
+  <h2>Βήμα 4 — Ρύθμιση του app</h2>
+  <ol>
+    <li>Άνοιξε το <strong>Oxygen Invoice App</strong> από το Shopify Admin</li>
+    <li>Πήγαινε <strong>Ρυθμίσεις</strong></li>
+    <li>Επέλεξε <strong>Production</strong> mode</li>
+    <li>Συμπλήρωσε: API Key, Numbering Sequence IDs, Contact ID, Payment Method ID</li>
+    <li>Πάτα <strong>Αποθήκευση</strong></li>
+  </ol>
+
+  <h2>Βήμα 5 — Επαλήθευση</h2>
+  <ol>
+    <li>Κάνε μια test παραγγελία στο Shopify σου</li>
+    <li>Πήγαινε <strong>Dashboard</strong> στο app</li>
+    <li>Θα πρέπει να εμφανιστεί νέο παραστατικό με status ✅</li>
+  </ol>
+
+  <h2>Checkout — Έκδοση Τιμολογίου (ΤΠ)</h2>
+  <div class="note">
+    Στο checkout εμφανίζεται checkbox <strong>"Θέλω τιμολόγιο"</strong>. Ο πελάτης συμπληρώνει ΑΦΜ, Επωνυμία, ΔΟΥ και εκδίδεται αυτόματα <strong>ΤΠ</strong> αντί ΑΛΠ.
+  </div>
+
+  <h2>Χρειάζεσαι βοήθεια;</h2>
+  <p>📧 <a href="mailto:invoice-support@picture2magnet.com">invoice-support@picture2magnet.com</a></p>
+
+  <hr>
+  <p><small><a href="https://billmanello.github.io/oxygen-invoice-privacy/">Privacy Policy</a></small></p>
+</body>
+</html>
