@@ -33,19 +33,27 @@
 
 <h2>Βήμα 1 — Δημιουργία λογαριασμού στο Oxygen</h2>
 
-<h3>Sandbox (δοκιμαστικό περιβάλλον)</h3>
-<ol>
-  <li>Πήγαινε στο <a href="https://sandbox-app.pelatologio.gr/register.php" target="_blank">https://sandbox-app.pelatologio.gr/register.php</a></li>
-  <li>Δημιούργησε λογαριασμό με τα στοιχεία της επιχείρησής σου</li>
-  <li>Ενημέρωσε το Oxygen support (<a href="mailto:support@oxygen.gr">support@oxygen.gr</a>) με το email εγγραφής σου για να σου στείλουν το Sandbox API Key</li>
-</ol>
-<div class="note">Το sandbox περιβάλλον είναι καθαρά δοκιμαστικό — δεν αποστέλλονται πραγματικά emails και τα παραστατικά δεν υποβάλλονται στην ΑΑΔΕ.</div>
-
-<h3>Production (παραγωγικό περιβάλλον)</h3>
+<h3>Production λογαριασμός (πρώτα αυτό)</h3>
 <ol>
   <li>Πήγαινε στο <a href="https://app.pelatologio.gr" target="_blank">https://app.pelatologio.gr</a></li>
-  <li>Δημιούργησε λογαριασμό με τα πραγματικά στοιχεία της επιχείρησής σου (ΑΦΜ, ΔΟΥ, κτλ.)</li>
+  <li>Δημιούργησε λογαριασμό με τα πραγματικά στοιχεία της επιχείρησής σου (ΑΦΜ, ΔΟΥ, επωνυμία κτλ.)</li>
 </ol>
+
+<h3>Sandbox λογαριασμός (για δοκιμές)</h3>
+<ol>
+  <li>Στείλε email στο <a href="mailto:support@oxygen.gr">support@oxygen.gr</a> και ζήτα API Key για διασύνδεση <strong>Shopify eshop</strong></li>
+  <li>Θα σε ρωτήσουν αν θέλεις <strong>Sandbox</strong> ή <strong>Production</strong> — ζήτα αρχικά <strong>Sandbox</strong></li>
+  <li>Θα σου ζητήσουν να δημιουργήσεις λογαριασμό στο <a href="https://sandbox-app.pelatologio.gr/register.php" target="_blank">https://sandbox-app.pelatologio.gr/register.php</a></li>
+  <li>Δημιούργησε τον sandbox λογαριασμό και ενημέρωσε το support με το email εγγραφής σου</li>
+  <li>Θα λάβεις το <strong>Sandbox API Key</strong> μέσω email</li>
+</ol>
+
+<div class="note">
+  Το sandbox περιβάλλον είναι καθαρά δοκιμαστικό — δεν αποστέλλονται πραγματικά emails και τα παραστατικά δεν υποβάλλονται στην ΑΑΔΕ.
+</div>
+<div class="tip">
+  Μόλις τελειώσεις τις δοκιμές στο Sandbox, επικοινώνησε ξανά με το support για να λάβεις το <strong>Production API Key</strong>.
+</div>
 
 ---
 
@@ -246,7 +254,7 @@
 <h3>Πώς λειτουργεί</h3>
 <p>Μόλις προστεθεί το block, στη σελίδα καλαθιού εμφανίζεται:</p>
 <ul>
-  <li>Checkbox <strong>"Θέλω τιμολόγιο"</strong></li>
+  <li>Checkbox <strong>"Έκδοση τιμολογίου"</strong></li>
   <li>Αν ο πελάτης το τσεκάρει, εμφανίζονται πεδία για <strong>ΑΦΜ, Επωνυμία, ΔΟΥ</strong></li>
   <li>Το ΑΦΜ επαληθεύεται αυτόματα με <strong>MOD11 validation</strong> (ελληνικός αλγόριθμος)</li>
   <li>Αν το ΑΦΜ είναι έγκυρο και ο πελάτης ολοκληρώσει την παραγγελία → εκδίδεται αυτόματα <strong>ΤΠ</strong> αντί ΑΛΠ</li>
