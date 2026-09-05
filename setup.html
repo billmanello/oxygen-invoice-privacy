@@ -57,7 +57,7 @@
 
 <h2>Βήμα 2 — Δημιουργία & Απόκτηση IDs από το Oxygen</h2>
 
-<p>Το app χρειάζεται 5 IDs από το Oxygen. Αυτά <strong>δεν φαίνονται στο UI</strong> — πρέπει πρώτα να δημιουργηθούν μέσα στην εφαρμογή και μετά να τα βγάλεις μέσω API.</p>
+<p>Το app χρειάζεται <strong>7 IDs</strong> από το Oxygen. Αυτά <strong>δεν φαίνονται στο UI</strong> — πρέπει πρώτα να δημιουργηθούν μέσα στην εφαρμογή και μετά να τα βγάλεις μέσω API.</p>
 
 <div class="note">
   <strong>Σημαντικό:</strong> Η παρακάτω διαδικασία γίνεται <strong>δύο φορές</strong>:<br>
@@ -72,6 +72,8 @@
   <tr><th>Τι να δημιουργήσεις</th><th>Οδηγίες</th></tr>
   <tr><td><strong>Σειρά Παραστατικών ΑΛΠ</strong></td><td>Πίνακας Ελέγχου → Σειρές Παραστατικών → Νέα σειρά → επέλεξε τύπο <strong>Απόδειξη Λιανικής Πώλησης (ΑΛΠ)</strong> → Αποθήκευσε</td></tr>
   <tr><td><strong>Σειρά Παραστατικών ΤΠ</strong></td><td>Πίνακας Ελέγχου → Σειρές Παραστατικών → Νέα σειρά → επέλεξε τύπο <strong>Τιμολόγιο Πώλησης (ΤΠ)</strong> → Αποθήκευσε</td></tr>
+  <tr><td><strong>Σειρά Παραστατικών ΑΛΠ-ΔΑ</strong></td><td>Πίνακας Ελέγχου → Σειρές Παραστατικών → Νέα σειρά → επέλεξε τύπο <strong>Πιστωτικό Απόδειξης (ΑΛΠ-ΔΑ)</strong> → Αποθήκευσε</td></tr>
+  <tr><td><strong>Σειρά Παραστατικών ΤΠ-ΔΑ</strong></td><td>Πίνακας Ελέγχου → Σειρές Παραστατικών → Νέα σειρά → επέλεξε τύπο <strong>Πιστωτικό Τιμολόγιο (ΤΠ-ΔΑ)</strong> → Αποθήκευσε</td></tr>
   <tr><td><strong>Default Επαφή (Contact)</strong></td><td>Επαφές → Νέα Επαφή → γενικό όνομα π.χ. <strong>"Λιανικός Πελάτης"</strong> (για παραγγελίες χωρίς ΑΦΜ) → Αποθήκευσε</td></tr>
   <tr><td><strong>Τρόπος Πληρωμής</strong></td><td>Πίνακας Ελέγχου → Τρόποι Πληρωμής → Νέος → π.χ. <strong>"Κάρτα"</strong> ή <strong>"Μετρητά"</strong> → Αποθήκευσε</td></tr>
   <tr><td><strong>Συντελεστής ΦΠΑ 24%</strong></td><td>Πίνακας Ελέγχου → Συντελεστές ΦΠΑ → Νέος → <strong>24%</strong> → Αποθήκευσε</td></tr>
@@ -81,32 +83,36 @@
 <p>Πήγαινε στο <a href="https://reqbin.com" target="_blank">reqbin.com</a>. Σε <strong>κάθε κλήση</strong> πρόσθεσε header:</p>
 <pre>Authorization: Bearer ΤΟ_SANDBOX_API_KEY_ΣΟΥ</pre>
 
-<h4>Numbering Sequence IDs (ΑΛΠ & ΤΠ)</h4>
-<pre>GET https://sandbox-api.pelatologio.gr/v1/invoicing-series</pre>
+<h4>Numbering Sequence IDs (ΑΛΠ, ΤΠ, ΑΛΠ-ΔΑ, ΤΠ-ΔΑ)</h4>
+<pre>GET https://sandbox-api.oxygen.gr/v1/numbering-sequences</pre>
 <ul>
   <li>Τη σειρά τύπου <strong>ΑΛΠ</strong> → αντέγραψε το <code>id</code> → <strong>Numbering Sequence ID (ΑΛΠ)</strong></li>
   <li>Τη σειρά τύπου <strong>ΤΠ</strong> → αντέγραψε το <code>id</code> → <strong>Numbering Sequence ID (ΤΠ)</strong></li>
+  <li>Τη σειρά τύπου <strong>ΑΛΠ-ΔΑ</strong> → αντέγραψε το <code>id</code> → <strong>Credit Note Numbering Sequence ID (ΑΛΠ-ΔΑ)</strong></li>
+  <li>Τη σειρά τύπου <strong>ΤΠ-ΔΑ</strong> → αντέγραψε το <code>id</code> → <strong>Credit Note Numbering Sequence ID (ΤΠ-ΔΑ)</strong></li>
 </ul>
 
 <h4>Contact ID</h4>
-<pre>GET https://sandbox-api.pelatologio.gr/v1/contacts</pre>
+<pre>GET https://sandbox-api.oxygen.gr/v1/contacts</pre>
 <p>Βρες τον <strong>"Λιανικό Πελάτη"</strong> → αντέγραψε το <code>id</code></p>
 
 <h4>Payment Method ID</h4>
-<pre>GET https://sandbox-api.pelatologio.gr/v1/payment-methods</pre>
+<pre>GET https://sandbox-api.oxygen.gr/v1/payment-methods</pre>
 <p>Βρες τον τρόπο πληρωμής → αντέγραψε το <code>id</code></p>
 
 <h4>Tax ID (ΦΠΑ 24%)</h4>
-<pre>GET https://sandbox-api.pelatologio.gr/v1/taxes</pre>
+<pre>GET https://sandbox-api.oxygen.gr/v1/taxes</pre>
 <p>Βρες τον συντελεστή <strong>24%</strong> → αντέγραψε το <code>id</code></p>
 
-<div class="tip">Κράτα τα 5 Sandbox IDs σε ένα αρχείο κειμένου — θα τα χρειαστείς στο Βήμα 3.</div>
+<div class="tip">Κράτα τα <strong>7 Sandbox IDs</strong> σε ένα αρχείο κειμένου — θα τα χρειαστείς στο Βήμα 3.</div>
 
 <h3>2γ — Δημιουργία μέσα στο Oxygen (Production)</h3>
 <p>Μόλις τελειώσεις τις δοκιμές, επανάλαβε <strong>ακριβώς την ίδια διαδικασία</strong> στο <a href="https://app.pelatologio.gr" target="_blank">app.pelatologio.gr</a> → γρανάζι ⚙️ → Πίνακας Ελέγχου:</p>
 <ul>
   <li>Σειρά Παραστατικών ΑΛΠ</li>
   <li>Σειρά Παραστατικών ΤΠ</li>
+  <li>Σειρά Παραστατικών ΑΛΠ-ΔΑ</li>
+  <li>Σειρά Παραστατικών ΤΠ-ΔΑ</li>
   <li>Default Επαφή "Λιανικός Πελάτης"</li>
   <li>Τρόπος Πληρωμής</li>
   <li>Συντελεστής ΦΠΑ 24%</li>
@@ -118,13 +124,13 @@
 
 <table>
   <tr><th>Τι θέλεις</th><th>Production URL</th></tr>
-  <tr><td>Numbering Sequences (ΑΛΠ & ΤΠ)</td><td><code>GET https://api.pelatologio.gr/v1/invoicing-series</code></td></tr>
-  <tr><td>Contact ID</td><td><code>GET https://api.pelatologio.gr/v1/contacts</code></td></tr>
-  <tr><td>Payment Method ID</td><td><code>GET https://api.pelatologio.gr/v1/payment-methods</code></td></tr>
-  <tr><td>Tax ID (24%)</td><td><code>GET https://api.pelatologio.gr/v1/taxes</code></td></tr>
+  <tr><td>Numbering Sequences (ΑΛΠ, ΤΠ, ΑΛΠ-ΔΑ, ΤΠ-ΔΑ)</td><td><code>GET https://api.oxygen.gr/v1/numbering-sequences</code></td></tr>
+  <tr><td>Contact ID</td><td><code>GET https://api.oxygen.gr/v1/contacts</code></td></tr>
+  <tr><td>Payment Method ID</td><td><code>GET https://api.oxygen.gr/v1/payment-methods</code></td></tr>
+  <tr><td>Tax ID (24%)</td><td><code>GET https://api.oxygen.gr/v1/taxes</code></td></tr>
 </table>
 
-<div class="tip">Κράτα τα 5 Production IDs <strong>χωριστά</strong> από τα Sandbox IDs.</div>
+<div class="tip">Κράτα τα <strong>7 Production IDs</strong> <strong>χωριστά</strong> από τα Sandbox IDs.</div>
 
 <h2>Βήμα 3 — Ρύθμιση του app</h2>
 <ol>
@@ -137,8 +143,10 @@
 <table>
   <tr><th>Πεδίο</th><th>Τιμή</th></tr>
   <tr><td>API Key</td><td>Το Sandbox API Key που έλαβες από το Oxygen</td></tr>
-  <tr><td>Numbering Sequence ID (ΑΛΠ)</td><td>Το id από το invoicing-series (ΑΛΠ) — Sandbox</td></tr>
-  <tr><td>Numbering Sequence ID (ΤΠ)</td><td>Το id από το invoicing-series (ΤΠ) — Sandbox</td></tr>
+  <tr><td>Numbering Sequence ID (ΑΛΠ)</td><td>Το id της σειράς ΑΛΠ — Sandbox</td></tr>
+  <tr><td>Numbering Sequence ID (ΤΠ)</td><td>Το id της σειράς ΤΠ — Sandbox</td></tr>
+  <tr><td>Credit Note Numbering Sequence ID (ΑΛΠ-ΔΑ)</td><td>Το id της σειράς Πιστωτικού ΑΛΠ — Sandbox</td></tr>
+  <tr><td>Credit Note Numbering Sequence ID (ΤΠ-ΔΑ)</td><td>Το id της σειράς Πιστωτικού ΤΠ — Sandbox</td></tr>
   <tr><td>Contact ID</td><td>Το id του γενικού πελάτη — Sandbox</td></tr>
   <tr><td>Payment Method ID</td><td>Το id του τρόπου πληρωμής — Sandbox</td></tr>
   <tr><td>Tax ID</td><td>Το id του ΦΠΑ 24% — Sandbox</td></tr>
