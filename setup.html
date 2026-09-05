@@ -67,62 +67,99 @@
 
 <p>Το app χρειάζεται 5 IDs από το Oxygen. Αυτά <strong>δεν φαίνονται στο UI</strong> — πρέπει πρώτα να δημιουργηθούν μέσα στην εφαρμογή και μετά να τα βγάλεις μέσω API.</p>
 
-<h3>3α — Δημιουργία μέσα στο Oxygen</h3>
-<p>Μπες στο Oxygen app → κλικ <strong>γρανάζι ⚙️ → Πίνακας Ελέγχου</strong> και δημιούργησε τα παρακάτω:</p>
+<div class="note">
+  <strong>Σημαντικό:</strong> Η παρακάτω διαδικασία γίνεται <strong>δύο φορές</strong>:<br>
+  — Μία για το <strong>Sandbox</strong> περιβάλλον (δοκιμές) στο <a href="https://sandbox-app.pelatologio.gr" target="_blank">sandbox-app.pelatologio.gr</a><br>
+  — Μία για το <strong>Production</strong> περιβάλλον (παραγωγή) στο <a href="https://app.pelatologio.gr" target="_blank">app.pelatologio.gr</a>
+</div>
+
+<h3>3α — Δημιουργία μέσα στο Oxygen (Sandbox)</h3>
+
+<p>Μπες στο <a href="https://sandbox-app.pelatologio.gr" target="_blank">sandbox-app.pelatologio.gr</a> → κλικ <strong>γρανάζι ⚙️ → Πίνακας Ελέγχου</strong> και δημιούργησε τα παρακάτω:</p>
 
 <table>
   <tr><th>Τι να δημιουργήσεις</th><th>Οδηγίες</th></tr>
   <tr>
     <td><strong>Σειρά Παραστατικών ΑΛΠ</strong></td>
-    <td>Σειρές Παραστατικών → Νέα σειρά → τύπος <strong>Απόδειξη Λιανικής Πώλησης (ΑΛΠ)</strong></td>
+    <td>Πίνακας Ελέγχου → Σειρές Παραστατικών → Νέα σειρά → επέλεξε τύπο <strong>Απόδειξη Λιανικής Πώλησης (ΑΛΠ)</strong> → Αποθήκευσε</td>
   </tr>
   <tr>
     <td><strong>Σειρά Παραστατικών ΤΠ</strong></td>
-    <td>Σειρές Παραστατικών → Νέα σειρά → τύπος <strong>Τιμολόγιο Πώλησης (ΤΠ)</strong></td>
+    <td>Πίνακας Ελέγχου → Σειρές Παραστατικών → Νέα σειρά → επέλεξε τύπο <strong>Τιμολόγιο Πώλησης (ΤΠ)</strong> → Αποθήκευσε</td>
   </tr>
   <tr>
     <td><strong>Default Επαφή (Contact)</strong></td>
-    <td>Επαφές → Νέα επαφή → Δημιούργησε έναν γενικό "Λιανικό Πελάτη" για παραγγελίες χωρίς ΑΦΜ</td>
+    <td>Επαφές → Νέα Επαφή → Συμπλήρωσε ένα γενικό όνομα π.χ. <strong>"Λιανικός Πελάτης"</strong> (χρησιμοποιείται για παραγγελίες χωρίς ΑΦΜ) → Αποθήκευσε</td>
   </tr>
   <tr>
     <td><strong>Τρόπος Πληρωμής</strong></td>
-    <td>Πίνακας Ελέγχου → Τρόποι Πληρωμής → Νέος (π.χ. "Κάρτα" ή "Μετρητά")</td>
+    <td>Πίνακας Ελέγχου → Τρόποι Πληρωμής → Νέος → π.χ. <strong>"Κάρτα"</strong> ή <strong>"Μετρητά"</strong> → Αποθήκευσε</td>
   </tr>
   <tr>
     <td><strong>Συντελεστής ΦΠΑ 24%</strong></td>
-    <td>Πίνακας Ελέγχου → Συντελεστές ΦΠΑ → Νέος → 24%</td>
+    <td>Πίνακας Ελέγχου → Συντελεστές ΦΠΑ → Νέος → βάλε <strong>24%</strong> → Αποθήκευσε</td>
   </tr>
 </table>
 
-<h3>3β — Απόκτηση IDs μέσω API (με reqbin.com)</h3>
+<h3>3β — Απόκτηση Sandbox IDs μέσω API (με reqbin.com)</h3>
 
-<p>Πήγαινε στο <a href="https://reqbin.com" target="_blank">https://reqbin.com</a> και κάνε τις παρακάτω κλήσεις. Σε <strong>κάθε κλήση</strong> πρόσθεσε header:</p>
-<pre>Authorization: Bearer ΤΟ_API_KEY_ΣΟΥ</pre>
+<p>Πήγαινε στο <a href="https://reqbin.com" target="_blank">reqbin.com</a>. Σε <strong>κάθε κλήση</strong> πρόσθεσε header:</p>
+<pre>Authorization: Bearer ΤΟ_SANDBOX_API_KEY_ΣΟΥ</pre>
 
-<div class="note">
-  <strong>Sandbox URLs:</strong> <code>https://sandbox-api.pelatologio.gr/v1/...</code><br>
-  <strong>Production URLs:</strong> <code>https://api.pelatologio.gr/v1/...</code>
-</div>
-
-<h4>Numbering Sequence ID (ΑΛΠ & ΤΠ)</h4>
+<h4>Numbering Sequence ID — ΑΛΠ & ΤΠ</h4>
 <pre>GET https://sandbox-api.pelatologio.gr/v1/invoicing-series</pre>
-<p>Στο response βρες:</p>
+<p>Στο response θα δεις λίστα με τις σειρές που έφτιαξες. Βρες:</p>
 <ul>
-  <li>Τη σειρά τύπου <strong>ΑΛΠ</strong> → αντέγραψε το <code>id</code></li>
-  <li>Τη σειρά τύπου <strong>ΤΠ</strong> → αντέγραψε το <code>id</code></li>
+  <li>Τη σειρά τύπου <strong>ΑΛΠ</strong> → αντέγραψε το <code>id</code> → αυτό είναι το <strong>Numbering Sequence ID (ΑΛΠ)</strong></li>
+  <li>Τη σειρά τύπου <strong>ΤΠ</strong> → αντέγραψε το <code>id</code> → αυτό είναι το <strong>Numbering Sequence ID (ΤΠ)</strong></li>
 </ul>
 
 <h4>Contact ID</h4>
 <pre>GET https://sandbox-api.pelatologio.gr/v1/contacts</pre>
-<p>Βρες τον γενικό "Λιανικό Πελάτη" που έφτιαξες → αντέγραψε το <code>id</code></p>
+<p>Στο response βρες τον <strong>"Λιανικό Πελάτη"</strong> που έφτιαξες → αντέγραψε το <code>id</code> → αυτό είναι το <strong>Contact ID</strong></p>
 
 <h4>Payment Method ID</h4>
 <pre>GET https://sandbox-api.pelatologio.gr/v1/payment-methods</pre>
-<p>Βρες τον τρόπο πληρωμής που έφτιαξες → αντέγραψε το <code>id</code></p>
+<p>Στο response βρες τον τρόπο πληρωμής που έφτιαξες → αντέγραψε το <code>id</code> → αυτό είναι το <strong>Payment Method ID</strong></p>
 
 <h4>Tax ID (ΦΠΑ 24%)</h4>
 <pre>GET https://sandbox-api.pelatologio.gr/v1/taxes</pre>
-<p>Βρες τον συντελεστή <strong>24%</strong> → αντέγραψε το <code>id</code></p>
+<p>Στο response βρες τον συντελεστή <strong>24%</strong> → αντέγραψε το <code>id</code> → αυτό είναι το <strong>Tax ID</strong></p>
+
+<div class="tip">
+  Κράτα τα 5 Sandbox IDs σε ένα αρχείο κειμένου — θα τα χρειαστείς στο Βήμα 4.
+</div>
+
+<h3>3γ — Δημιουργία μέσα στο Oxygen (Production)</h3>
+
+<p>Μόλις τελειώσεις τις δοκιμές στο Sandbox, επανάλαβε <strong>ακριβώς την ίδια διαδικασία</strong> για το Production:</p>
+
+<p>Μπες στο <a href="https://app.pelatologio.gr" target="_blank">app.pelatologio.gr</a> → κλικ <strong>γρανάζι ⚙️ → Πίνακας Ελέγχου</strong> και δημιούργησε ξανά:</p>
+<ul>
+  <li>Σειρά Παραστατικών ΑΛΠ</li>
+  <li>Σειρά Παραστατικών ΤΠ</li>
+  <li>Default Επαφή "Λιανικός Πελάτης"</li>
+  <li>Τρόπος Πληρωμής</li>
+  <li>Συντελεστής ΦΠΑ 24%</li>
+</ul>
+
+<h3>3δ — Απόκτηση Production IDs μέσω API</h3>
+
+<p>Ίδια διαδικασία με 3β, αλλά με <strong>Production API Key</strong> και Production URLs:</p>
+
+<pre>Authorization: Bearer ΤΟ_PRODUCTION_API_KEY_ΣΟΥ</pre>
+
+<table>
+  <tr><th>Τι θέλεις</th><th>Production URL</th></tr>
+  <tr><td>Numbering Sequences (ΑΛΠ & ΤΠ)</td><td><code>GET https://api.pelatologio.gr/v1/invoicing-series</code></td></tr>
+  <tr><td>Contact ID</td><td><code>GET https://api.pelatologio.gr/v1/contacts</code></td></tr>
+  <tr><td>Payment Method ID</td><td><code>GET https://api.pelatologio.gr/v1/payment-methods</code></td></tr>
+  <tr><td>Tax ID (24%)</td><td><code>GET https://api.pelatologio.gr/v1/taxes</code></td></tr>
+</table>
+
+<div class="tip">
+  Κράτα τα 5 Production IDs χωριστά από τα Sandbox IDs — θα τα χρειαστείς όταν περάσεις σε Production mode στο app.
+</div>
 
 ---
 
