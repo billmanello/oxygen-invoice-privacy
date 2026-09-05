@@ -214,15 +214,48 @@
 
 ---
 
-<h2>Checkout — Έκδοση Τιμολογίου (ΤΠ)</h2>
+<h2>Ενεργοποίηση Φόρμας Τιμολογίου στο Cart</h2>
 
-<p>Αν ο πελάτης σου θέλει τιμολόγιο αντί απόδειξης:</p>
+<p>Η φόρμα για έκδοση τιμολογίου (ΤΠ) εμφανίζεται στη <strong>σελίδα καλαθιού (Cart Page)</strong> — όχι στο checkout και όχι στο cart drawer.</p>
+
+<div class="warning">
+  <strong>Σημαντικό:</strong> Το theme σου πρέπει να χρησιμοποιεί <strong>Cart Page</strong> και όχι Cart Drawer. Αν χρησιμοποιείς Cart Drawer, πρέπει πρώτα να το αλλάξεις σε Cart Page από τις ρυθμίσεις του theme.
+</div>
+
+<h3>Βήμα 1 — Έλεγξε ότι χρησιμοποιείς Cart Page</h3>
+<ol>
+  <li>Στο Shopify Admin πήγαινε <strong>Online Store → Themes</strong></li>
+  <li>Κλικ <strong>Customize</strong> στο ενεργό theme σου</li>
+  <li>Από το αριστερό menu επέλεξε <strong>Cart</strong></li>
+  <li>Βεβαιώσου ότι ο τύπος καλαθιού είναι <strong>Page</strong> και όχι <strong>Drawer</strong></li>
+  <li>Αν είναι Drawer → άλλαξέ το σε <strong>Page</strong> → Save</li>
+</ol>
+
+<h3>Βήμα 2 — Πρόσθεσε το block της φόρμας τιμολογίου</h3>
+<ol>
+  <li>Στο Shopify Admin πήγαινε <strong>Online Store → Themes</strong></li>
+  <li>Κλικ <strong>Customize</strong> στο ενεργό theme σου</li>
+  <li>Από το dropdown πάνω κεντρικά επέλεξε <strong>Cart</strong> (Cart Page)</li>
+  <li>Στο αριστερό panel βρες την ενότητα του cart (συνήθως <strong>"Cart items"</strong> ή <strong>"Main cart"</strong>)</li>
+  <li>Κλικ <strong>"Add block"</strong></li>
+  <li>Βρες και επέλεξε το block <strong>"Oxygen Invoice Fields"</strong> (από το Oxygen Invoice App)</li>
+  <li>Το block θα εμφανιστεί στη σελίδα του καλαθιού</li>
+  <li>Κλικ <strong>Save</strong></li>
+</ol>
+
+<h3>Πώς λειτουργεί</h3>
+<p>Μόλις προστεθεί το block, στη σελίδα καλαθιού εμφανίζεται:</p>
 <ul>
-  <li>Στο checkout εμφανίζεται checkbox <strong>"Θέλω τιμολόγιο"</strong></li>
-  <li>Ο πελάτης συμπληρώνει ΑΦΜ, Επωνυμία, ΔΟΥ</li>
-  <li>Το ΑΦΜ επαληθεύεται αυτόματα με MOD11 validation</li>
-  <li>Εκδίδεται αυτόματα <strong>ΤΠ</strong> αντί ΑΛΠ</li>
+  <li>Checkbox <strong>"Θέλω τιμολόγιο"</strong></li>
+  <li>Αν ο πελάτης το τσεκάρει, εμφανίζονται πεδία για <strong>ΑΦΜ, Επωνυμία, ΔΟΥ</strong></li>
+  <li>Το ΑΦΜ επαληθεύεται αυτόματα με <strong>MOD11 validation</strong> (ελληνικός αλγόριθμος)</li>
+  <li>Αν το ΑΦΜ είναι έγκυρο και ο πελάτης ολοκληρώσει την παραγγελία → εκδίδεται αυτόματα <strong>ΤΠ</strong> αντί ΑΛΠ</li>
+  <li>Αν δεν τσεκάρει το checkbox → εκδίδεται κανονικά <strong>ΑΛΠ</strong></li>
 </ul>
+
+<div class="note">
+  Αν το block <strong>"Oxygen Invoice Fields"</strong> δεν εμφανίζεται στη λίστα, βεβαιώσου ότι το Oxygen Invoice App είναι εγκατεστημένο και ενεργό στο Shopify Admin σου.
+</div>
 
 ---
 
