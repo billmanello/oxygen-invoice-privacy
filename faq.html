@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Συχνές Ερωτήσεις — Oxygen Invoice App</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 860px; margin: 40px auto; padding: 0 20px; color: #333; line-height: 1.7; }
+    h1 { color: #1a1a1a; }
+    h2 { color: #2c5f2e; margin-top: 48px; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px; }
+    details { border: 1px solid #e0e0e0; border-radius: 6px; margin: 12px 0; padding: 0; }
+    summary { padding: 14px 16px; cursor: pointer; font-weight: bold; color: #2c5f2e; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: "▶ "; font-size: 0.8em; }
+    details[open] summary::before { content: "▼ "; }
+    details[open] summary { border-bottom: 1px solid #e0e0e0; }
+    .answer { padding: 14px 16px; }
+    .note { background: #fff8e1; border-left: 4px solid #ffc107; padding: 10px 14px; margin: 10px 0; border-radius: 4px; }
+    .tip { background: #e8f5e9; border-left: 4px solid #4caf50; padding: 10px 14px; margin: 10px 0; border-radius: 4px; }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+    a { color: #2c5f2e; }
+  </style>
+</head>
+<body>
+
+<h1>❓ Συχνές Ερωτήσεις — Oxygen Invoice App</h1>
+<p>Απαντήσεις στις πιο συχνές ερωτήσεις για το Oxygen Invoice App. Αν δεν βρεις αυτό που ψάχνεις, επικοινώνησε μαζί μας στο <a href="mailto:invoice-support@picture2magnet.com">invoice-support@picture2magnet.com</a>.</p>
+
+<h2>Γενικά</h2>
+
+<details>
+  <summary>Τι είναι το Oxygen Invoice App;</summary>
+  <div class="answer">
+    <p>Το Oxygen Invoice App είναι μια εφαρμογή Shopify που εκδίδει αυτόματα ΑΛΠ (Αποδείξεις Λιανικής Πώλησης) και ΤΠ (Τιμολόγια Πώλησης) για κάθε πληρωμένη παραγγελία και τα υποβάλλει αυτόματα στο myDATA της ΑΑΔΕ σε πραγματικό χρόνο.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Χρειάζομαι λογαριασμό στο Oxygen ERP για να χρησιμοποιήσω το app;</summary>
+  <div class="answer">
+    <p>Ναι. Το app διασυνδέεται με το <strong>Oxygen ERP (pelatologio.gr)</strong> για την έκδοση παραστατικών. Χρειάζεσαι λογαριασμό στο Oxygen και API Key που εκδίδεται κατόπιν επικοινωνίας με το support τους (<a href="mailto:support@oxygen.gr">support@oxygen.gr</a>).</p>
+    <p>Δες αναλυτικά τα βήματα στον <a href="./setup.html">Οδηγό Εγκατάστασης</a>.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Το app λειτουργεί με όλα τα Shopify plans;</summary>
+  <div class="answer">
+    <p>Ναι, το app λειτουργεί με όλα τα Shopify plans (Basic, Shopify, Advanced, Plus).</p>
+  </div>
+</details>
+
+<details>
+  <summary>Υπάρχει δωρεάν δοκιμή;</summary>
+  <div class="answer">
+    <p>Ναι, το app προσφέρει <strong>14 ημέρες δωρεάν δοκιμή</strong>. Δεν απαιτείται πιστωτική κάρτα για να ξεκινήσεις.</p>
+  </div>
+</details>
+
+<h2>Παραστατικά & myDATA</h2>
+
+<details>
+  <summary>Τι διαφορά έχει το ΑΛΠ από το ΤΠ;</summary>
+  <div class="answer">
+    <p><strong>ΑΛΠ (Απόδειξη Λιανικής Πώλησης)</strong>: Εκδίδεται αυτόματα σε κάθε παραγγελία όπου ο πελάτης δεν έχει δώσει ΑΦΜ. Αντιστοιχεί στο myDATA document type <strong>11.1</strong>.</p>
+    <p><strong>ΤΠ (Τιμολόγιο Πώλησης)</strong>: Εκδίδεται όταν ο πελάτης συμπληρώσει ΑΦΜ, Επωνυμία και ΔΟΥ στη φόρμα τιμολογίου στο cart. Αντιστοιχεί στο myDATA document type <strong>1.1</strong>.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Τα παραστατικά υποβάλλονται αυτόματα στο myDATA;</summary>
+  <div class="answer">
+    <p>Ναι. Κάθε παραστατικό που εκδίδεται σε Production mode υποβάλλεται αυτόματα στο myDATA της ΑΑΔΕ σε πραγματικό χρόνο. Δεν χρειάζεται καμία χειροκίνητη ενέργεια.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Τι γίνεται αν η έκδοση παραστατικού αποτύχει;</summary>
+  <div class="answer">
+    <p>Το app κάνει αυτόματα <strong>3 επανάληψεις (retry)</strong> με exponential backoff (1s → 2s → 4s). Αν και οι 3 αποτύχουν:</p>
+    <ul>
+      <li>Η παραγγελία εμφανίζεται στο Dashboard με status <strong>❌ Failed</strong></li>
+      <li>Λαμβάνεις <strong>email alert</strong> στο διαχειριστικό email</li>
+      <li>Μπορείς να κάνεις <strong>χειροκίνητο retry</strong> από το Dashboard</li>
+      <li>Μπορείς να εκδώσεις χειροκίνητα παραστατικό από το Dashboard δίνοντας τον αριθμό παραγγελίας</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>Τι γίνεται με τις επιστροφές (refunds);</summary>
+  <div class="answer">
+    <p>Σε περίπτωση επιστροφής χρημάτων, το app εκδίδει αυτόματα <strong>πιστωτικό σημείωμα</strong> (credit note) που υποβάλλεται στο myDATA. Το document type εξαρτάται από τον τύπο του αρχικού παραστατικού (ΑΛΠ ή ΤΠ).</p>
+  </div>
+</details>
+
+<h2>Εγκατάσταση & Ρύθμιση</h2>
+
+<details>
+  <summary>Πού βρίσκω τα IDs που χρειάζεται το app (Numbering Sequence, Contact, κτλ.);</summary>
+  <div class="answer">
+    <p>Τα IDs δεν φαίνονται στο UI του Oxygen — πρέπει να τα βγάλεις μέσω API calls. Δες αναλυτικές οδηγίες στο <strong>Βήμα 2</strong> του <a href="./setup.html">Οδηγού Εγκατάστασης</a>.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Τι είναι το Sandbox mode και γιατί το χρειάζομαι;</summary>
+  <div class="answer">
+    <p>Το Sandbox mode συνδέεται με το δοκιμαστικό περιβάλλον του Oxygen (<a href="https://sandbox-app.pelatologio.gr" target="_blank">sandbox-app.pelatologio.gr</a>). Στο Sandbox:</p>
+    <ul>
+      <li>Τα παραστατικά εκδίδονται δοκιμαστικά και <strong>δεν υποβάλλονται στην ΑΑΔΕ</strong></li>
+      <li>Δεν αποστέλλονται πραγματικά emails</li>
+      <li>Μπορείς να δοκιμάσεις ελεύθερα χωρίς συνέπειες</li>
+    </ul>
+    <div class="note">Πάντα ξεκίνα με Sandbox και πέρνα σε Production μόνο αφού επιβεβαιώσεις ότι όλα λειτουργούν σωστά.</div>
+  </div>
+</details>
+
+<details>
+  <summary>Πώς μπορώ να δοκιμάσω την έκδοση ΤΠ (τιμολογίου);</summary>
+  <div class="answer">
+    <p>Για να εκδοθεί ΤΠ πρέπει:</p>
+    <ol>
+      <li>Να έχεις προσθέσει το block <strong>"Oxygen Invoice Fields"</strong> στη σελίδα καλαθιού (Cart Page) — δες Βήμα 5 του οδηγού</li>
+      <li>Να έχεις ενεργοποιήσει το <strong>Test mode</strong> στα Payments του Shopify (Settings → Payments)</li>
+      <li>Να κάνεις παραγγελία συμπληρώνοντας ΑΦΜ, Επωνυμία, ΔΟΥ στη φόρμα του cart</li>
+      <li>Να ολοκληρώσεις την παραγγελία με δοκιμαστική κάρτα (<code>4242 4242 4242 4242</code>)</li>
+    </ol>
+  </div>
+</details>
+
+<details>
+  <summary>Το theme μου χρησιμοποιεί Cart Drawer. Τι κάνω;</summary>
+  <div class="answer">
+    <p>Το block της φόρμας τιμολογίου λειτουργεί <strong>μόνο σε Cart Page</strong>, όχι σε Cart Drawer. Για να αλλάξεις:</p>
+    <ol>
+      <li>Online Store → Themes → Customize</li>
+      <li>Επέλεξε Cart από το αριστερό menu</li>
+      <li>Άλλαξε τον τύπο καλαθιού από <strong>Drawer</strong> σε <strong>Page</strong></li>
+      <li>Save</li>
+    </ol>
+  </div>
+</details>
+
+<details>
+  <summary>Απεγκατέστησα το app αλλά η φόρμα τιμολογίου εξακολουθεί να εμφανίζεται στο cart. Γιατί;</summary>
+  <div class="answer">
+    <p>Το Shopify δεν αφαιρεί αυτόματα τα app blocks από το theme κατά την απεγκατάσταση. Για να το αφαιρέσεις χειροκίνητα:</p>
+    <ol>
+      <li>Online Store → Themes → Customize</li>
+      <li>Επέλεξε Cart (Cart Page)</li>
+      <li>Βρες το block <strong>"Oxygen Invoice Fields"</strong> στο αριστερό panel</li>
+      <li>Κλικ πάνω του → <strong>Remove block</strong></li>
+      <li>Save</li>
+    </ol>
+  </div>
+</details>
+
+<h2>Τεχνικά</h2>
+
+<details>
+  <summary>Πού αποθηκεύονται τα δεδομένα μου;</summary>
+  <div class="answer">
+    <p>Τα δεδομένα παραγγελιών και παραστατικών αποθηκεύονται σε ασφαλή βάση δεδομένων στο <strong>Railway.app</strong>. Τα API credentials αποθηκεύονται κρυπτογραφημένα. Δες την <a href="./index.html">Πολιτική Απορρήτου</a> για πλήρεις λεπτομέρειες.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Για πόσο καιρό κρατάτε τα αρχεία των παραστατικών;</summary>
+  <div class="answer">
+    <p>Τα αρχεία παραστατικών διατηρούνται για <strong>5 χρόνια</strong> όπως απαιτείται από την ελληνική φορολογική νομοθεσία.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Το app συμμορφώνεται με το GDPR;</summary>
+  <div class="answer">
+    <p>Ναι. Δες την <a href="./index.html">Πολιτική Απορρήτου</a> για πλήρεις πληροφορίες σχετικά με τα δικαιώματά σου βάσει GDPR.</p>
+  </div>
+</details>
+
+<h2>Επικοινωνία & Υποστήριξη</h2>
+
+<details>
+  <summary>Πώς μπορώ να επικοινωνήσω για υποστήριξη;</summary>
+  <div class="answer">
+    <p>Στείλε email στο <a href="mailto:invoice-support@picture2magnet.com">invoice-support@picture2magnet.com</a>. Απαντάμε εντός <strong>1-2 εργάσιμων ημερών</strong>.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Για προβλήματα με το Oxygen ERP ή το API Key, ποιον επικοινωνώ;</summary>
+  <div class="answer">
+    <p>Για θέματα που αφορούν το Oxygen ERP (API Key, παραστατικά στο Oxygen dashboard, σειρές παραστατικών κτλ.), επικοινώνησε απευθείας με το Oxygen support: <a href="mailto:support@oxygen.gr">support@oxygen.gr</a>.</p>
+    <p>Για θέματα που αφορούν το Shopify app (εγκατάσταση, Dashboard, settings), επικοινώνησε μαζί μας: <a href="mailto:invoice-support@picture2magnet.com">invoice-support@picture2magnet.com</a>.</p>
+  </div>
+</details>
+
+<hr>
+<p><small>
+  <a href="./setup.html">Οδηγός Εγκατάστασης</a> |
+  <a href="./index.html">Πολιτική Απορρήτου</a>
+</small></p>
+
+</body>
+</html>
