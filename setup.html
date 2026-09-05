@@ -148,13 +148,8 @@
   <li>Πάτα <strong>Αποθήκευση</strong></li>
 </ol>
 
-<h2>Βήμα 4 — Δοκιμή στο Sandbox</h2>
+<h2>Βήμα 4 — Δοκιμή ΑΛΠ στο Sandbox</h2>
 
-<div class="note">
-  Στο Sandbox τα παραστατικά εκδίδονται δοκιμαστικά και <strong>δεν υποβάλλονται στην ΑΑΔΕ</strong>. Κάνε τουλάχιστον μία δοκιμή ΑΛΠ και μία δοκιμή ΤΠ.
-</div>
-
-<h3>4α — Δοκιμή ΑΛΠ (απόδειξη χωρίς ΑΦΜ)</h3>
 <p>Για δοκιμή ΑΛΠ <strong>δεν χρειάζεται πραγματική πληρωμή</strong>. Χρησιμοποίησε Draft Order:</p>
 <ol>
   <li>Στο Shopify Admin πήγαινε <strong>Orders → Create order</strong></li>
@@ -165,18 +160,9 @@
   <li>Αν δεις <strong>❌ Failed</strong> → κλικ <strong>Retry</strong> ή έλεγξε ότι τα Sandbox IDs είναι σωστά</li>
 </ol>
 
-<h3>4β — Δοκιμή ΤΠ (τιμολόγιο με ΑΦΜ)</h3>
-<p>Για δοκιμή ΤΠ χρειάζεται ο πελάτης να συμπληρώσει ΑΦΜ στη φόρμα του cart, οπότε απαιτείται <strong>κανονική ροή παραγγελίας μέσω checkout</strong>. Για να μην γίνει πραγματική χρέωση, ενεργοποίησε το Test Mode στα payments:</p>
-<ol>
-  <li>Στο Shopify Admin πήγαινε <strong>Settings → Payments</strong></li>
-  <li>Ενεργοποίησε το <strong>Test mode</strong> (Bogus Gateway ή Shopify Payments test mode)</li>
-  <li>Πήγαινε στο κατάστημά σου → πρόσθεσε προϊόν στο καλάθι</li>
-  <li>Στη σελίδα καλαθιού συμπλήρωσε <strong>ΑΦΜ, Επωνυμία, ΔΟΥ</strong> στη φόρμα τιμολογίου</li>
-  <li>Ολοκλήρωσε την παραγγελία με <strong>δοκιμαστική κάρτα</strong> (π.χ. <code>4242 4242 4242 4242</code>)</li>
-  <li>Πήγαινε στο <strong>Dashboard</strong> του app</li>
-  <li>Θα εμφανιστεί νέο παραστατικό τύπου <strong>ΤΠ</strong> με status <strong>✅ Success</strong></li>
-</ol>
-<div class="tip">Μετά τις δοκιμές <strong>απενεργοποίησε το Test mode</strong> από Settings → Payments πριν πας σε Production.</div>
+<div class="note">
+  Η δοκιμή ΤΠ γίνεται στο <strong>Βήμα 6</strong> — αφού πρώτα εγκατασταθεί το block στο cart (Βήμα 5).
+</div>
 
 <h2>Βήμα 5 — Ενεργοποίηση Φόρμας Τιμολογίου στο Cart</h2>
 
@@ -219,11 +205,38 @@
   <li>Αν τα πεδία μείνουν κενά → εκδίδεται κανονικά <strong>ΑΛΠ</strong></li>
 </ul>
 
-<div class="note">
-  <strong>Για δοκιμή ΤΠ στο Sandbox:</strong> Πρέπει να έχεις ενεργοποιημένο το <strong>Test mode</strong> στα payments του Shopify (Settings → Payments) ώστε να μην γίνει πραγματική χρέωση. Χρησιμοποίησε δοκιμαστική κάρτα <code>4242 4242 4242 4242</code>.
+<h3>Απεγκατάσταση app — Σημαντική σημείωση</h3>
+<div class="warning">
+  Αν απεγκαταστήσεις το Oxygen Invoice App, το Shopify <strong>δεν αφαιρεί αυτόματα το block</strong> από το theme σου. Το block παραμένει ορφανό και εμφανίζεται κενό στη σελίδα καλαθιού.<br><br>
+  Για να το αφαιρέσεις χειροκίνητα:
+  <ol>
+    <li>Πήγαινε <strong>Online Store → Themes → Customize</strong></li>
+    <li>Επέλεξε <strong>Cart</strong> (Cart Page)</li>
+    <li>Βρες το block <strong>"Oxygen Invoice Fields"</strong> στο αριστερό panel</li>
+    <li>Κλικ πάνω του → <strong>Remove block</strong></li>
+    <li>Κλικ <strong>Save</strong></li>
+  </ol>
+  Αν επανεγκαταστήσεις το app, πρέπει να προσθέσεις ξανά το block από την αρχή (Βήμα 5β).
 </div>
 
-<h2>Βήμα 6 — Μετάβαση σε Production</h2>
+<h2>Βήμα 6 — Δοκιμή ΤΠ στο Sandbox</h2>
+
+<p>Τώρα που έχει εγκατασταθεί το block, κάνε δοκιμή ΤΠ. Απαιτείται <strong>κανονική ροή παραγγελίας μέσω checkout</strong> — για να μην γίνει πραγματική χρέωση ενεργοποίησε το Test mode:</p>
+<ol>
+  <li>Στο Shopify Admin πήγαινε <strong>Settings → Payments</strong></li>
+  <li>Ενεργοποίησε το <strong>Test mode</strong> (Bogus Gateway ή Shopify Payments test mode)</li>
+  <li>Πήγαινε στο κατάστημά σου → πρόσθεσε προϊόν στο καλάθι</li>
+  <li>Στη <strong>σελίδα καλαθιού</strong> συμπλήρωσε <strong>ΑΦΜ, Επωνυμία, ΔΟΥ</strong> στη φόρμα τιμολογίου</li>
+  <li>Ολοκλήρωσε την παραγγελία με <strong>δοκιμαστική κάρτα</strong> (π.χ. <code>4242 4242 4242 4242</code>)</li>
+  <li>Πήγαινε στο <strong>Dashboard</strong> του app</li>
+  <li>Θα εμφανιστεί νέο παραστατικό τύπου <strong>ΤΠ</strong> με status <strong>✅ Success</strong></li>
+</ol>
+
+<div class="tip">
+  Μετά τις δοκιμές <strong>απενεργοποίησε το Test mode</strong> από Settings → Payments πριν πας σε Production.
+</div>
+
+<h2>Βήμα 7 — Μετάβαση σε Production</h2>
 
 <ol>
   <li>Βεβαιώσου ότι έχεις <strong>απενεργοποιήσει το Test mode</strong> από Settings → Payments</li>
@@ -237,29 +250,14 @@
 <p>Πριν αρχίσεις κανονικά, κάνε μία δοκιμαστική παραγγελία για να επιβεβαιώσεις ότι όλα λειτουργούν:</p>
 <ol>
   <li>Δημιούργησε ένα δοκιμαστικό προϊόν με τιμή <strong>€1,00</strong> (ή χρησιμοποίησε υπάρχον με χαμηλή τιμή)</li>
-  <li>Κάνε μια πραγματική παραγγελία μέσω του καταστήματός σου</li>
-  <li>Για δοκιμή <strong>ΑΛΠ</strong>: παραγγελία χωρίς συμπλήρωση ΑΦΜ</li>
-  <li>Για δοκιμή <strong>ΤΠ</strong>: παραγγελία με συμπλήρωση ΑΦΜ στη φόρμα του cart</li>
+  <li>Για δοκιμή <strong>ΑΛΠ</strong>: κάνε παραγγελία χωρίς συμπλήρωση ΑΦΜ στο cart</li>
+  <li>Για δοκιμή <strong>ΤΠ</strong>: κάνε παραγγελία με συμπλήρωση ΑΦΜ στη φόρμα του cart</li>
   <li>Πήγαινε στο <strong>Dashboard</strong> του app και επιβεβαίωσε ότι εμφανίζεται <strong>✅ Success</strong></li>
-  <li>Άνοιξε το παραστατικό από το <strong>"Άνοιγμα"</strong> button και επιβεβαίωσε ότι υπάρχει στο Oxygen production dashboard</li>
+  <li>Κλικ <strong>"Άνοιγμα"</strong> και επιβεβαίωσε ότι το παραστατικό υπάρχει στο Oxygen production dashboard</li>
 </ol>
 
 <div class="warning">
   <strong>Προσοχή:</strong> Στο Production mode τα παραστατικά είναι <strong>νομικά δεσμευτικά</strong> και υποβάλλονται αυτόματα στην ΑΑΔΕ. Βεβαιώσου ότι όλα τα στοιχεία της επιχείρησής σου (ΑΦΜ, ΔΟΥ, σειρές παραστατικών) είναι σωστά πριν ενεργοποιήσεις.
-</div>
-
-<h3>Απεγκατάσταση app — Σημαντική σημείωση</h3>
-<div class="warning">
-  Αν απεγκαταστήσεις το Oxygen Invoice App, το Shopify <strong>δεν αφαιρεί αυτόματα το block</strong> από το theme σου. Το block παραμένει ορφανό και εμφανίζεται κενό στη σελίδα καλαθιού.<br><br>
-  Για να το αφαιρέσεις χειροκίνητα:
-  <ol>
-    <li>Πήγαινε <strong>Online Store → Themes → Customize</strong></li>
-    <li>Επέλεξε <strong>Cart</strong> (Cart Page)</li>
-    <li>Βρες το block <strong>"Oxygen Invoice Fields"</strong> στο αριστερό panel</li>
-    <li>Κλικ πάνω του → <strong>Remove block</strong></li>
-    <li>Κλικ <strong>Save</strong></li>
-  </ol>
-  Αν επανεγκαταστήσεις το app, πρέπει να προσθέσεις ξανά το block από την αρχή (Βήμα 5β).
 </div>
 
 <h2>Χρειάζεσαι βοήθεια;</h2>
