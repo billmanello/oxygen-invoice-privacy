@@ -30,6 +30,10 @@
   <strong>Σημείωση:</strong> Ξεκίνα πάντα με το <strong>Sandbox</strong> περιβάλλον για δοκιμές. Μόνο αφού επιβεβαιώσεις ότι όλα δουλεύουν σωστά, πέρνα στο Production.
 </div>
 
+<div class="tip">
+  <strong>Εκδίδεις μόνο ΑΛΠ (λιανική);</strong> Τα <strong>Βήματα 5 και 6</strong> (φόρμα τιμολογίου στο cart) είναι <strong>προαιρετικά</strong>. Αν δεν χρειάζεσαι έκδοση ΤΠ για επιχειρήσεις, μπορείς να τα παραλείψεις εντελώς. Επίσης, τα πεδία <strong>Numbering Sequence ID (ΤΠ)</strong> και <strong>Credit Note IDs</strong> στα Settings δεν είναι απαραίτητα.
+</div>
+
 <h2>Βήμα 1 — Δημιουργία λογαριασμού & Απόκτηση API Key</h2>
 
 <h3>1α — Δημιουργία Production λογαριασμού (πρώτα αυτό)</h3>
@@ -81,6 +85,7 @@
 
 <h3>2β — Απόκτηση Sandbox IDs μέσω API (με reqbin.com)</h3>
 <p>Πήγαινε στο <a href="https://reqbin.com" target="_blank">reqbin.com</a>. Σε <strong>κάθε κλήση</strong> πρόσθεσε header:</p>
+<p><small>💡 Πλήρης τεκμηρίωση Oxygen API: <a href="https://docs.oxygen.gr/#description/introduction" target="_blank">docs.oxygen.gr</a></small></p>
 <pre>Authorization: Bearer ΤΟ_SANDBOX_API_KEY_ΣΟΥ</pre>
 
 <h4>Numbering Sequence IDs (ΑΛΠ, ΤΠ, ΑΛΠ-ΔΑ, ΤΠ-ΔΑ)</h4>
@@ -173,6 +178,10 @@
 </div>
 
 <h2>Βήμα 5 — Ενεργοποίηση Φόρμας Τιμολογίου στο Cart</h2>
+
+<div class="tip">
+  <strong>Προαιρετικό βήμα.</strong> Αν εκδίδεις αποκλειστικά ΑΛΠ, μπορείς να παραλείψεις τα Βήματα 5 και 6 εντελώς.
+</div>
 
 <p>Η φόρμα για έκδοση τιμολογίου (ΤΠ) εμφανίζεται στη <strong>σελίδα καλαθιού (Cart Page)</strong> — όχι στο checkout και όχι στο cart drawer.</p>
 
@@ -270,7 +279,7 @@
 
 <h2>Πλάνα & Τιμολόγηση</h2>
 <p>Το Oxygen Invoice App διαθέτει δωρεάν δοκιμαστική περίοδο 14 ημερών. Για να δεις τα διαθέσιμα πλάνα και τις τιμές, επισκέψου τη σελίδα του app στο Shopify App Store.</p>
-  
+
 <h2>Χρειάζεσαι βοήθεια;</h2>
 <p>📧 <a href="mailto:invoice-support@picture2magnet.com">invoice-support@picture2magnet.com</a></p>
 
