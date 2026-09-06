@@ -84,10 +84,17 @@
 </table>
 
 <h3>2β — Απόκτηση Sandbox IDs μέσω API (με reqbin.com)</h3>
-<p>Πήγαινε στο <a href="https://reqbin.com" target="_blank">reqbin.com</a>. Σε <strong>κάθε κλήση</strong> πρόσθεσε header:</p>
+<p>Πήγαινε στο <a href="https://app.reqbin.com" target="_blank">app.reqbin.com</a>.</p>
 <p><small>💡 Πλήρης τεκμηρίωση Oxygen API: <a href="https://docs.oxygen.gr/#description/introduction" target="_blank">docs.oxygen.gr</a></small></p>
-<pre>Authorization: Bearer ΤΟ_SANDBOX_API_KEY_ΣΟΥ
-Accept: application/json</pre>
+
+<p>Για <strong>κάθε κλήση</strong> ακολούθησε τα παρακάτω βήματα:</p>
+<ol>
+  <li>Πάνω αριστερά επέλεξε <strong>GET</strong> και στο πεδίο URL βάλε το αντίστοιχο endpoint (βλ. παρακάτω)</li>
+  <li>Κλικ στο tab <strong>Auth</strong> → επέλεξε <strong>Bearer</strong> → στο πεδίο <strong>Token</strong> βάλε το Sandbox API Key σου</li>
+  <li>Κλικ στο tab <strong>Headers</strong> → στο κενό πεδίο κάτω από το "Default headers (5)" γράψε <strong>Accept</strong> και στο δεξί πεδίο <strong>application/json</strong></li>
+  <li>Πάτα <strong>Send</strong></li>
+  <li>Στο <strong>Response Body</strong> βλέπεις τα αντικείμενα που δημιούργησες στο προηγούμενο βήμα — αντέγραψε το <code>id</code> που χρειάζεσαι</li>
+</ol>
 
 <h4>Numbering Sequence IDs (ΑΛΠ, ΤΠ, ΑΛΠ-ΔΑ, ΤΠ-ΔΑ)</h4>
 <pre>GET https://sandbox-api.oxygen.gr/v1/numbering-sequences</pre>
@@ -126,8 +133,13 @@ Accept: application/json</pre>
 
 <h3>2δ — Απόκτηση Production IDs μέσω API</h3>
 <p>Ίδια διαδικασία με 2β, αλλά με <strong>Production API Key</strong> και Production URLs:</p>
-<pre>Authorization: Bearer ΤΟ_PRODUCTION_API_KEY_ΣΟΥ
-Accept: application/json</pre>
+<ol>
+  <li>Πάνω αριστερά επέλεξε <strong>GET</strong> και στο πεδίο URL βάλε το αντίστοιχο endpoint (βλ. παρακάτω)</li>
+  <li>Κλικ στο tab <strong>Auth</strong> → επέλεξε <strong>Bearer</strong> → στο πεδίο <strong>Token</strong> βάλε το Production API Key σου</li>
+  <li>Κλικ στο tab <strong>Headers</strong> → στο κενό πεδίο κάτω από το "Default headers (5)" γράψε <strong>Accept</strong> και στο δεξί πεδίο <strong>application/json</strong></li>
+  <li>Πάτα <strong>Send</strong></li>
+  <li>Στο <strong>Response Body</strong> βλέπεις τα αντικείμενα που δημιούργησες — αντέγραψε το <code>id</code> που χρειάζεσαι</li>
+</ol>
 
 <table>
   <tr><th>Τι θέλεις</th><th>Production URL</th></tr>
